@@ -64,7 +64,7 @@ npm run dev
 
 ## ☁️ Deployment
 
-- **Vercel:** Import this repository and set the project root directory to `frontend`. Set `VITE_API_URL` to the deployed backend's base URL.
+- **Vercel:** Import this repository and set the project root directory to `frontend`. The production build defaults to `https://tripquery-ai-api.onrender.com`; to override it, set `VITE_API_URL` in Vercel's Environment Variables. See `frontend/.env.example`.
 - **Render:** Create a Blueprint from this repository using the root `render.yaml`; it deploys the FastAPI service from `backend`.
 
 The Render Blueprint uses the free instance with an ephemeral filesystem, so uploaded documents and local database/index files are not durable across restarts or redeploys. It disables the SentenceTransformer model to fit the free instance and uses the built-in deterministic embedding fallback. Set `OPENAI_API_KEY` in Render's environment settings to enable OpenAI-backed answers.

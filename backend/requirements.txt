@@ -8,7 +8,9 @@ python-multipart>=0.0.9
 pypdf>=4.1.0
 python-docx>=1.1.0
 faiss-cpu>=1.8.0; sys_platform != "win32" or python_version < "3.14"
-sentence-transformers>=2.5.1
+# sentence-transformers is intentionally optional for Python 3.15+ compatibility.
+# The app falls back to a deterministic semantic projection when it is unavailable.
+# Install it only in environments that already provide a compatible PyTorch stack.
 openai>=1.14.0
 numpy>=1.26.4
 requests>=2.31.0

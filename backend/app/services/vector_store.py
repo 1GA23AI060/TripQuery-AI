@@ -104,6 +104,7 @@ class VectorStore:
 
         from app.services.embedding_service import embedding_service
         is_neural = embedding_service.is_neural
+        minimum_score = threshold if is_neural else min(threshold, 0.3)
 
         results: List[Dict[str, Any]] = []
         for idx, score in zip(indices, scores):
@@ -113,7 +114,7 @@ class VectorStore:
             raw_score = float(score)
             calibrated_score = raw_score if is_neural else min(1.0, max(0.0, float(raw_score * 2.2)))
 
-            if calibrated_score < threshold:
+            if calibrated_score < minimum_score:
                 continue
 
             meta = self.metadata[idx]

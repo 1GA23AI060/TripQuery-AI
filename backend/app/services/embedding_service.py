@@ -1,4 +1,5 @@
 import logging
+import hashlib
 from typing import List, Optional
 import numpy as np
 from app.core.config import settings
@@ -98,7 +99,8 @@ class EmbeddingService:
             if not tokens:
                 tokens = ["travel", "destination"]
             for w in tokens:
-                rng = np.random.RandomState(abs(hash(w)) % (2**31 - 1))
+                seed = int.from_bytes(hashlib.blake2b(w.encode("utf-8"), digest_size=4).digest(), "big")
+                rng = np.random.RandomState(seed)
                 vec += rng.randn(self._dim).astype(np.float32)
 
             norm = np.linalg.norm(vec)
