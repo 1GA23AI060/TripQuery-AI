@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Colors */
+  --bg-primary: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F1F5F9;
+  --bg-dark: #0B192C;
+  --bg-dark-card: #1E3E62;
+
+  --navy-900: #0B132B;
+  --navy-800: #1C2541;
+  --navy-700: #3A506B;
+  
+  --sky-50: #F0F9FF;
+  --sky-100: #E0F2FE;
+  --sky-500: #0EA5E9;
+  --sky-600: #0284C7;
+  --sky-700: #0369A1;
+
+  --sunset-50: #FFF7ED;
+  --sunset-100: #FFEDD5;
+  --sunset-500: #F97316;
+  --sunset-600: #EA580C;
+
+  --emerald-50: #ECFDF5;
+  --emerald-500: #10B981;
+  --emerald-600: #059669;
+
+  --text-main: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+
+  --border-light: #E2E8F0;
+  --border-hover: #CBD5E1;
+  --border-focus: #38BDF8;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(11, 25, 44, 0.07), 0 2px 4px -2px rgba(11, 25, 44, 0.04);
+  --shadow-lg: 0 10px 25px -5px rgba(11, 25, 44, 0.09), 0 8px 10px -6px rgba(11, 25, 44, 0.05);
+  --shadow-xl: 0 20px 30px -10px rgba(11, 25, 44, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--navy-900);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all 0.2s ease;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+.pulsing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--emerald-500);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--emerald-500);
+  animation: pulseGlow 2s infinite ease-in-out;
+}

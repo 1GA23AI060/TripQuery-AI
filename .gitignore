@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+backend/venv/
+
+# Local configuration and data
+backend/.env
+backend/tripquery.db
+backend/data/uploads/
+backend/data/vector_store/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env*
+!frontend/.env.example
+
+# macOS
+.DS_Store
