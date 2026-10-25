@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     TOP_K: int = 5
     RELEVANCE_THRESHOLD: float = 0.45
     EMBEDDING_MODEL_NAME: str = "all-MiniLM-L6-v2"
+    USE_SENTENCE_TRANSFORMERS: bool = True
     
     # Database & Storage
     DATABASE_URL: str = f"sqlite:///{BASE_DIR / 'tripquery.db'}"

@@ -18,6 +18,10 @@ class EmbeddingService:
 
     def _load_model(self):
         """Load sentence-transformers model once and reuse across queries."""
+        if not settings.USE_SENTENCE_TRANSFORMERS:
+            logger.info("SentenceTransformer loading disabled; using deterministic semantic projection.")
+            return
+
         try:
             from sentence_transformers import SentenceTransformer
             logger.info(f"Loading embedding model: {settings.EMBEDDING_MODEL_NAME}")

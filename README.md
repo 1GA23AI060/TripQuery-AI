@@ -62,6 +62,13 @@ npm run dev
 ```
 - **Frontend UI**: `http://localhost:5173`
 
+## ☁️ Deployment
+
+- **Vercel:** Import this repository and set the project root directory to `frontend`. Set `VITE_API_URL` to the deployed backend's base URL.
+- **Render:** Create a Blueprint from this repository using the root `render.yaml`; it deploys the FastAPI service from `backend`.
+
+The Render Blueprint uses the free instance with an ephemeral filesystem, so uploaded documents and local database/index files are not durable across restarts or redeploys. It disables the SentenceTransformer model to fit the free instance and uses the built-in deterministic embedding fallback. Set `OPENAI_API_KEY` in Render's environment settings to enable OpenAI-backed answers.
+
 ---
 
 ## 🛠️ Technology Stack
